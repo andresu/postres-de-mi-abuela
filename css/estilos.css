@@ -89,15 +89,8 @@ body {
 .grid-item--width4 {
   width: 100%; }
 
-.masonry-layout {
-  -webkit-column-count: 1;
-  -moz-column-count: 1;
-  column-count: 1;
-  -webkit-column-gap: 0;
-  -moz-column-gap: 0;
-  column-gap: 0; }
-
 .wrapper {
+  height: 100%;
   width: 100%; }
   .wrapper .left {
     background-color: #2D0802;
