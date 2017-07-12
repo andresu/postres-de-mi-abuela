@@ -135,39 +135,6 @@ body {
     border-radius: 0;
     color: #2D0802; }
 
-/*
-.left{
-	.categories{
-		color:white;
-		display:flex;
-		flex-wrap:wrap;
-		justify-content:center;
-		margin:1.5rem 0 0 0;
-		.category{
-			border:0.1rem solid;
-			margin:0.5rem 0.8rem 0.5rem 0;
-			padding:0.5rem 0.3rem;
-		}
-		.ct-1 {border-color:$ct-1;}
-		.ct-2 {border-color:$ct-2;}
-		.ct-3 {border-color:$ct-3;}
-		.ct-4 {border-color:$ct-4;}
-		.ct-5 {border-color:$ct-5;}
-		.ct-6 {border-color:$ct-6;}
-		.ct-7 {border-color:$ct-7;}
-		.ct-8 {border-color:$ct-8;}
-
-		.ct-1 a{color:$ct-1;}
-		.ct-2 a{color:$ct-2;}
-		.ct-3 a{color:$ct-3;}
-		.ct-4 a{color:$ct-4;}
-		.ct-5 a{color:$ct-5;}
-		.ct-6 a{color:$ct-6;}
-		.ct-7 a{color:$ct-7;}
-		.ct-8 a{color:$ct-8;}
-	}
-}
-*/
 .categories {
   color: white;
   display: -webkit-box;
@@ -316,6 +283,9 @@ header {
     height: 18.750rem;
     z-index: 5; }
     .post-generic .graphic img {
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
       width: 100%; }
     .post-generic .graphic .darken {
       background-color: rgba(0, 0, 0, 0.5);
