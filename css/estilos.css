@@ -47,10 +47,6 @@ li {
 .padding-0 {
   padding: 0; }
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
 body {
   font-family: "Titlium", sans-serif; }
 
@@ -59,13 +55,6 @@ body {
   max-width: 1200px;
   width: 100%; }
 
-/* clearfix */
-/*
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}*/
 /* ---- grid-item ---- */
 .grid-sizer,
 .grid-item {
@@ -90,29 +79,32 @@ body {
   width: 100%; }
 
 .wrapper {
-  height: 100%;
+  position: relative;
+  min-height: 100%;
   width: 100%; }
   .wrapper .left {
     background-color: #2D0802;
-    left: -100%;
+    left: -20rem;
     padding: 1.5rem 0;
     position: absolute;
-    width: 18%; }
+    width: 20rem;
+    z-index: 10;
+    min-height: 100%; }
   .wrapper .right {
     background-color: rgba(255, 255, 255, 0.2);
-    position: absolute;
+    position: relative;
     width: 100%; }
   .wrapper .left, .wrapper .right {
-    display: inline-block;
-    height: 100%; }
-  .wrapper .open {
-    position: relative;
-    height: 100%;
-    left: 0;
-    top: 0;
-    width: 60%; }
+    display: inline-block; }
   .wrapper .move {
     width: 100%; }
+
+.open {
+  position: relative;
+  min-height: 100%;
+  left: 20rem;
+  top: 0;
+  width: 100%; }
 
 .marca img {
   margin: 0 auto; }
@@ -121,10 +113,12 @@ body {
   border: 0;
   border: 2px dotted #CD615E;
   left: 20%;
+  margin: 1rem 0;
   position: absolute;
   width: 60%; }
 
 .menu-lateral {
+  margin: 5rem 0 0 0;
   position: relative; }
   .menu-lateral a {
     color: #CD615E;
@@ -134,6 +128,12 @@ body {
     background-color: #CD615E !important;
     border-radius: 0;
     color: #2D0802; }
+
+.nav > li > a {
+  padding: 0.5rem; }
+
+.wrapper-categories {
+  margin: 2rem 0 1rem 0; }
 
 .categories {
   color: white;
@@ -392,7 +392,10 @@ header {
       position: relative; }
 
 .post-generic-video {
-  max-height: 24.750rem; }
+  max-height: 24.750rem;
+  -webkit-transition: width 2s linear 1s;
+  -o-transition: width 2s linear 1s;
+  transition: width 2s linear 1s; }
   .post-generic-video .graphic {
     position: relative;
     max-height: 18.750rem; }
@@ -496,18 +499,12 @@ header {
     margin: 0; }
   .main-post .post-generic .categories-post-gn button {
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid #A6A6A6;
     font-family: "Titlium", sans-serif;
     font-weight: 700;
-    color: white;
+    color: #A6A6A6;
     margin: 1.5rem 35%; }
   .main-post .post-generic .categories-post-gn p {
-    color: white; }
-
-.end-title {
-  text-align: center;
-  width: 100%; }
-  .end-title p {
     color: #A6A6A6; }
 
 .full-post {
@@ -534,11 +531,18 @@ header {
         text-align: center;
         width: 100%; }
   .full-post .post-image {
+    max-height: 34.375rem;
+    overflow: hidden;
     width: 100%; }
     .full-post .post-image img {
-      max-width: 100%;
+      position: relative;
       -o-object-fit: cover;
-      object-fit: cover; }
+      object-fit: cover;
+      -webkit-transform: translateY(-25%);
+      -ms-transform: translateY(-25%);
+      transform: translateY(-25%);
+      top: -25%;
+      width: 100%; }
   .full-post .post-text {
     color: #A6A6A6;
     font-family: "Titlium", sans-serif; }
@@ -576,7 +580,6 @@ header {
 
 @media (min-width: 48rem) {
   .wrapper .open {
-    position: relative;
     height: 100%;
     left: 0;
     top: 0;
@@ -590,8 +593,10 @@ header {
     padding: 0; }
   .busqueda {
     width: 90%; }
-    .busqueda .form-group input {
-      width: 100%; }
+    .busqueda .form-group {
+      width: 70%; }
+      .busqueda .form-group input {
+        width: 100%; }
   /* .masonry-layout {
     	column-count: 2;
   	} */
@@ -617,8 +622,16 @@ header {
     .main-post .post-generic .categories-post-gn ul, .main-post .post-generic .categories-post-gn button {
       margin: 0; }
     .main-post .post-generic .categories-post-gn button {
+      border: 1px solid white;
+      color: white;
       left: 30%;
       position: relative; }
+    .main-post .post-generic .categories-post-gn p {
+      color: white; }
+  .full-post .post-info .post-name .name {
+    margin: 0 auto;
+    position: relative;
+    width: 40%; }
   .full-post .post-author p.author-resume {
     margin: 0 auto;
     position: relative;
@@ -647,9 +660,27 @@ header {
     .video .post-generic .categories-post-gn {
       display: none;
       position: absolute; }
-  .menu-lateral a {
-    font-size: 1.8rem; }
+  .menu-lateral {
+    margin: 3rem 0 0 0; }
+    .menu-lateral a {
+      font-size: 1.5rem;
+      padding: 0.3rem 0.5rem; }
   .full-post .post-author p.author-resume {
     width: 50%; }
   .full-post .related-post hr {
     width: 25%; } }
+
+@media (min-width: 75rem) {
+  .menu-lateral {
+    margin: 6rem 0 0 0; }
+    .menu-lateral a {
+      font-size: 2rem;
+      padding: 1.5rem 1rem; }
+  .wrapper-categories {
+    margin: 4rem 0 2rem 0; }
+  .footer {
+    margin: 4rem 0 0 0; }
+  .full-post .post-info .post-name .name {
+    margin: 0 auto;
+    position: relative;
+    width: 35%; } }
